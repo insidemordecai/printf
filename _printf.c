@@ -38,6 +38,12 @@ int _printf(const char *format, ...)
 					_putchar('%');
 					total += 1;
 					break;
+				case 'd':
+					total += printInt((long)(va_arg(arguments, int)));
+					break;
+				case 'i':
+					total += printInt((long)(va_arg(arguments, int)));
+					break;
 				default:
 					_putchar('%');
 					_putchar(format[i]);
