@@ -44,6 +44,9 @@ int _printf(const char *format, ...)
 				case 'i':
 					total += printInt((long)(va_arg(arguments, int)));
 					break;
+				case 'b':
+					total += toBin(va_arg(arguments, unsigned int));
+					break;
 				default:
 					_putchar('%');
 					_putchar(format[i]);

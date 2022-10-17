@@ -40,5 +40,9 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+
+	_printf("To Binary: %b\n", 98);
+	printf("To Binary: %b\n", 98);
+	
     return (0);
 }
