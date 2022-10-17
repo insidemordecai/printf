@@ -19,7 +19,7 @@ int printString(char *string)
 			length++;
 		}
 	}
-	else 
+	else
 	{
 		return (printString("null"));
 	}
@@ -70,7 +70,7 @@ int toBin(unsigned int value)
 	if (value == 1)
 	{
 		length += _putchar('1');
-		return(length);
+		return (length);
 	}
 
 	mod = 0;
@@ -131,7 +131,7 @@ int toHex(unsigned int value, int uppercase)
 		{
 			if (uppercase == 1)
 				hex[i++] = 55 + mod; /* 55 + 10 = 65 which is A */
-			else 
+			else
 				hex[i++] = 87 + mod; /* 87 + 10 = 97 which is a */
 		}
 
