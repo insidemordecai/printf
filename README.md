@@ -1,6 +1,6 @@
 # Making printf in C from scratch
 
-The function should functin the same as the standard `printf` function
+The function should work the same as the standard `printf` function
 
 ## Testing 
 
