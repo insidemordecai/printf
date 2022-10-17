@@ -47,6 +47,18 @@ int _printf(const char *format, ...)
 				case 'b':
 					total += toBin(va_arg(arguments, unsigned int));
 					break;
+				case 'u':
+					total += printInt(va_arg(arguments, unsigned int));
+					break;
+				case 'o':
+					total += toOct(va_arg(arguments, int));
+					break;
+				case 'x':
+					total += toHex(va_arg(arguments, int));
+					break;
+				case 'X':
+					total += toHex(va_arg(arguments, int));
+					break;
 				default:
 					_putchar('%');
 					_putchar(format[i]);
