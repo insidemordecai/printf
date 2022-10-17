@@ -54,10 +54,10 @@ int _printf(const char *format, ...)
 					total += toOct(va_arg(arguments, int));
 					break;
 				case 'x':
-					total += toHex(va_arg(arguments, int));
+					total += toHex(va_arg(arguments, int), 0);
 					break;
 				case 'X':
-					total += toHex(va_arg(arguments, int));
+					total += toHex(va_arg(arguments, int), 1);
 					break;
 				default:
 					_putchar('%');

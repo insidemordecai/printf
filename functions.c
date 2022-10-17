@@ -115,7 +115,7 @@ int toOct(unsigned int value)
  * @value: number to convert
  * Return: number of hexadecimal characters
  */
-int toHex(unsigned int value)
+int toHex(unsigned int value, int uppercase)
 {
 	int hex[sizeof(unsigned int) * 8], mod, i = 0, j, length = 0;
 
@@ -124,9 +124,16 @@ int toHex(unsigned int value)
 		mod = value % 16;
 
 		if (mod < 10)
+		{
 			hex[i++] = 48 + mod; /* in ASCII, 48 is 0 */
-		else 
-			hex[i++] = 55 + mod; /* 55 + 10 = 65 which is A */
+		}
+		else
+		{
+			if (uppercase == 1)
+				hex[i++] = 55 + mod; /* 55 + 10 = 65 which is A */
+			else 
+				hex[i++] = 87 + mod; /* 87 + 10 = 97 which is a */
+		}
 
 		value /= 16;
 	}
