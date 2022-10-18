@@ -2,6 +2,11 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * _printf - print an output based on a format
+ * @format: a character string
+ * Return: length of characters printed excluding null terminator
+ */
 int _printf(const char *format, ...)
 {
 	va_list arguments;
@@ -12,7 +17,7 @@ int _printf(const char *format, ...)
 
 	va_start(arguments, format);
 
-	for (i = 0; *format && format[i] != '\0'; i++)
+	for (i = 0; *(format + i) != '\0'; i++)
 	{
 		/* set flag to true (1) if encountered */
 		if (format[i] == '%')
@@ -65,7 +70,7 @@ int _printf(const char *format, ...)
 					total += 2;
 			}
 		}
-		else 
+		else
 		{
 			_putchar(format[i]);
 			total += 1;
