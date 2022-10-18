@@ -1,0 +1,40 @@
+man_3_printf
+
+_printf - Man page
+
+Name
+	_printf - produce output according to a format.
+
+Description
+	The function produces output according to a format. Format controls the output just like in the printf function from the standard library. The following specifiers are used
+	- c
+		The int argument is converted to an unsigned char, and the resulting character is written.
+	- s
+		The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but not including) a terminating null byte ('\0')
+	- %
+		A '%' is written. No argument is converted. The complete conversion specification is '%%'. 
+	- d, i 
+		The int argument is converted to signed decimal notation.
+	- o, u, x, X
+		The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X) notation. The letters abcdef are used for x conversions; the letters ABCDEF are used for X conversions.
+	- b
+		The unsigned int argument is converted to binary.
+	- S
+		The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up t0 (but not including) a terminating null byte ('\0'). Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+	- p
+		The argument address is printed in hexadecimal (as 2 characters)
+	- r
+		The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written in reverse but not including a terminating null byte ('\0').
+	- R
+		The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are substituted with different characters based on the ROT-13 cipher.
+
+Return Value
+	On success, this function returns the number of characters printed(excluding the null byte used to end output to strings).
+Format
+	Each conversion specifier is introduced by the % character and ends with a conversion specifier (c or s or d or i). If %% is passed, % is printed.
+
+Example
+	To print character '1', string "three" and length 39;
+	_printf("%c %s %d %i", '1', "three", 39, 39);
+Authors
+	insidemordecai & Emmanuel Ingosi
