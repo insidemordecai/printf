@@ -15,5 +15,5 @@ To test, run the `autocompile.sh` script as follows:
 The script includes all the flags needed for `gcc` as well as pointing to the location of the test file. The output will be saved to the `root` directory where you can run it as follows:
 
 ```
-./customPrintf
+./ourPrintf
 ```
