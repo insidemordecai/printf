@@ -43,6 +43,6 @@ int main(void)
 
 	_printf("To Binary: %b\n", 98);
 	printf("To Binary: %b\n", 98);
-	
+	_printf("printS: %S\n", "Best\nSchool");
     return (0);
 }
