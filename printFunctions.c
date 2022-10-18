@@ -1,8 +1,7 @@
-/**
- * CONTAINS: printString, printInt, printUnsignedInt
- */
+/* CONTAINS: printString, printInt, printUnsignedInt */
 
 #include "main.h"
+#include <math.h>
 
 /**
  * printString - print a string
@@ -64,7 +63,7 @@ int printUnsignedInt(int value)
 	unsigned int a[10], i, m, sum = 0;
 	int length = 0;
 
-	m = 1000000000; /* 10 power 9 */
+	m = (unsigned int)pow(10, 9);
 	a[0] = value / m;
 
 	for (i = 1; i < 10; i++)
@@ -80,6 +79,55 @@ int printUnsignedInt(int value)
 		if (sum || i == 9)
 		{
 			_putchar('0' + a[i]);
+			length++;
+		}
+	}
+	return (length);
+}
+
+/**
+ * printAddress - prints an address in hex
+ * @addr: address to print
+ * Return: number of characters
+ */
+int printAddress(unsigned long addr)
+{
+	int length = 0;
+	unsigned int a[16], i, sum = 0;
+	unsigned long m;
+	char *str = "(nil)";
+
+	if (addr == 0)
+	{
+		for (i = 0; str[i]; i++)
+		{
+			_putchar(str[i]);
+			length++;
+		}
+		return (length);
+	}
+
+	_putchar('0');
+	_putchar('x');
+	length = 2;
+	m = (unsigned long)pow(16, 15);
+	a[0] = addr / m;
+
+	for (i = 1; i < 16; i++)
+	{
+		m /= 16;
+		a[i] = (addr / m) % 16;
+	}
+
+	for (i = 0; i < 16; i++)
+	{
+		sum += a[i];
+		if (sum || i == 15)
+		{
+			if (a[i] < 10)
+				_putchar('0' + a[i]);
+			else
+				_putchar('0' + ('a' - ':') + a[i]);
 			length++;
 		}
 	}

@@ -9,7 +9,7 @@
  */
 int printS(char *str)
 {
-	int i, length = 0; 
+	int i, length = 0;
 
 	if (str == NULL)
 		str = "(null)";
@@ -34,7 +34,7 @@ int printS(char *str)
 }
 
 /**
- * charHex - print a character's ASCII value in hex (uppercase) 
+ * charHex - print a character's ASCII value in hex (uppercase)
  * @ch: character to print its ASCII value
  * Return: number of characters printed (always 2)
  */

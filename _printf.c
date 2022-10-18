@@ -75,6 +75,8 @@ int _printfHelper(const char *format, int i, va_list arguments)
 			return (total += toHex(va_arg(arguments, int), 1));
 		case 'S':
 			return (total += printS(va_arg(arguments, char *)));
+		case 'p':
+			return (total += printAddress(va_arg(arguments, unsigned long)));
 		default:
 			_putchar('%');
 			_putchar(format[i]);

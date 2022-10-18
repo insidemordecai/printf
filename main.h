@@ -15,5 +15,6 @@ int toOct(unsigned int value);
 int toHex(unsigned int value, int uppercase);
 int printS(char *str);
 int charHex(char ch);
+int printAddress(unsigned long addr);
 
 #endif
