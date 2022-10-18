@@ -79,3 +79,41 @@ int printRev(char *str)
 
 	return (length);
 }
+
+/**
+ * printRot13 - print a string in rot13
+ * @str: string to print
+ * Return: number of characters
+ */
+int printRot13(char *str)
+{
+	int i = 0, j, length = 0;
+	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char cipher[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	if (str == NULL)
+		str = "(ahyy)";
+
+	while (str[i])
+	{
+		for (j = 0; alphabet[j]; j++)
+		{
+			if (alphabet[j] == str[i])
+			{
+				_putchar(cipher[j]);
+				length++;
+				break;
+			}
+		}
+
+		if (!alphabet[j])
+		{
+			_putchar(str[i]);
+			length++;
+		}
+
+		i++;
+	}
+
+	return (length);
+}

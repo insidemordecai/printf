@@ -17,5 +17,6 @@ int printS(char *str);
 int charHex(char ch);
 int printAddress(unsigned long addr);
 int printRev(char *str);
+int printRot13(char *str);
 
 #endif

@@ -45,5 +45,6 @@ int main(void)
 	printf("To Binary: %b\n", 98);
 	_printf("printS: %S\n", "Best\nSchool");
 	_printf("printRev: %r\n", "Best School");
+	_printf("printRot13: %R\n", "HELLO");
     return (0);
 }

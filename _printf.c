@@ -79,6 +79,8 @@ int _printfHelper(const char *format, int i, va_list arguments)
 			return (total += printAddress(va_arg(arguments, unsigned long)));
 		case 'r':
 			return (total += printRev(va_arg(arguments, char *)));
+		case 'R':
+			return (total += printRot13(va_arg(arguments, char *)));
 		default:
 			_putchar('%');
 			_putchar(format[i]);
