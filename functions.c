@@ -113,6 +113,7 @@ int toOct(unsigned int value)
 /**
  * toHex - convert to hexadecimal (base 16)
  * @value: number to convert
+ * @uppercase: to choose case to use for hex letters
  * Return: number of hexadecimal characters
  */
 int toHex(unsigned int value, int uppercase)
