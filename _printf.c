@@ -18,7 +18,6 @@ int _printf(const char *format, ...)
 	va_start(arguments, format);
 	for (i = 0; *format && format[i] != '\0'; i++)
 	{
-		/* set flag to true (1) if encountered */
 		if (format[i] == '%')
 		{
 			flag = 1;
@@ -27,45 +26,7 @@ int _printf(const char *format, ...)
 		{
 			flag = 0;
 
-			switch (format[i])
-			{
-				case 'c':
-					_putchar(va_arg(arguments, int));
-					total += 1;
-					break;
-				case 's':
-					total += printString(va_arg(arguments, char *));
-					break;
-				case '%':
-					_putchar('%');
-					total += 1;
-					break;
-				case 'd':
-					total += printInt((long)(va_arg(arguments, int)));
-					break;
-				case 'i':
-					total += printInt((long)(va_arg(arguments, int)));
-					break;
-				case 'b':
-					total += toBin(va_arg(arguments, unsigned int));
-					break;
-				case 'u':
-					total += printInt(va_arg(arguments, unsigned int));
-					break;
-				case 'o':
-					total += toOct(va_arg(arguments, int));
-					break;
-				case 'x':
-					total += toHex(va_arg(arguments, int), 0);
-					break;
-				case 'X':
-					total += toHex(va_arg(arguments, int), 1);
-					break;
-				default:
-					_putchar('%');
-					_putchar(format[i]);
-					total += 2;
-			}
+			total += _printfHelper(format, i, arguments);
 		}
 		else
 		{
@@ -76,4 +37,45 @@ int _printf(const char *format, ...)
 	va_end(arguments);
 
 	return (total);
+}
+/**
+ * _printfHelper - performs function based on format specifer passed
+ * @format: the specifier
+ * @arguments: va_list with all arguments
+ * @i: position in the va_list
+ * Return: total characters printed
+ */
+int _printfHelper(const char *format, int i, va_list arguments)
+{
+	int total = 0;
+
+	switch (format[i])
+	{
+		case 'c':
+			_putchar(va_arg(arguments, int));
+			return (total += 1);
+		case 's':
+			return (total += printString(va_arg(arguments, char *)));
+		case '%':
+			_putchar('%');
+			return (total += 1);
+		case 'd':
+			return (total += printInt((long)(va_arg(arguments, int))));
+		case 'i':
+			return (total += printInt((long)(va_arg(arguments, int))));
+		case 'b':
+			return (total += toBin(va_arg(arguments, unsigned int)));
+		case 'u':
+			return (total += printInt(va_arg(arguments, unsigned int)));
+		case 'o':
+			return (total += toOct(va_arg(arguments, int)));
+		case 'x':
+			return (total += toHex(va_arg(arguments, int), 0));
+		case 'X':
+			return (total += toHex(va_arg(arguments, int), 1));
+		default:
+			_putchar('%');
+			_putchar(format[i]);
+			return (total += 2);
+	}
 }
