@@ -66,7 +66,7 @@ int _printfHelper(const char *format, int i, va_list arguments)
 		case 'b':
 			return (total += toBin(va_arg(arguments, unsigned int)));
 		case 'u':
-			return (total += printInt(va_arg(arguments, unsigned int)));
+			return (total += printUnsignedInt(va_arg(arguments, int)));
 		case 'o':
 			return (total += toOct(va_arg(arguments, int)));
 		case 'x':

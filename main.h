@@ -9,6 +9,7 @@ int _printf(const char *format, ...);
 int _printfHelper(const char *format, int i, va_list arguments);
 int printString(char *string);
 int printInt(long int integer);
+int printUnsignedInt(int value);
 int toBin(unsigned int value);
 int toOct(unsigned int value);
 int toHex(unsigned int value, int uppercase);

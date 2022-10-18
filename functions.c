@@ -1,4 +1,4 @@
-/* CONTAINS: printString, printInt, toBin */
+/* CONTAINS: printString, printInt, toBin, toOct, toHex */
 
 #include "main.h"
 
@@ -85,6 +85,38 @@ int toBin(unsigned int value)
 	for (i = mod - 1; i >= 0; i--)
 		length += _putchar(bin[i]);
 
+	return (length);
+}
+
+/**
+ * printUnsignedInt - print an unsigned int
+ * @value: number to print as unsigned int
+ * Return: number of characters
+ */
+int printUnsignedInt(int value)
+{
+	unsigned int a[10], i, m, sum = 0;
+	int length = 0;
+
+	m = 1000000000; /* 10 power 9 */
+	a[0] = value / m;
+
+	for (i = 1; i < 10; i++)
+	{
+		m /= 10;
+		a[i] = (value / m) % 10;
+	}
+
+	for (i = 0; i < 10; i++)
+	{
+		sum += a[i];
+
+		if (sum || i == 9)
+		{
+			_putchar('0' + a[i]);
+			length++;
+		}
+	}
 	return (length);
 }
 
