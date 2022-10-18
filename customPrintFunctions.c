@@ -5,7 +5,7 @@
  *			(0 < ASCII value < 32 or >= 127) are printed as \x followed
  *			by the ASCII code value in hex (uppercase - always 2 characters)
  * @str: string to print
- * Return: number of character printed
+ * Return: number of character
  */
 int printS(char *str)
 {
@@ -36,7 +36,7 @@ int printS(char *str)
 /**
  * charHex - print a character's ASCII value in hex (uppercase)
  * @ch: character to print its ASCII value
- * Return: number of characters printed (always 2)
+ * Return: number of characters (always 2)
  */
 int charHex(char ch)
 {
@@ -53,5 +53,29 @@ int charHex(char ch)
 		else
 			_putchar('0' + d[length]);
 	}
+	return (length);
+}
+
+/**
+ * printRev - print a string in reverse
+ * @str: string to reverse
+ * Return: number of characters
+ */
+int printRev(char *str)
+{
+	int i, length = 0;
+
+	if (str == NULL)
+		str = ")llun(";
+
+	for (i = 0; str[i]; i++)
+		;
+
+	for (i -= 1; i >= 0; i--)
+	{
+		_putchar(str[i]);
+		length++;
+	}
+
 	return (length);
 }
