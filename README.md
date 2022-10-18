@@ -2,9 +2,9 @@
 
 The function should work the same as the standard `printf` function
 
-## Testing 
+## Testing
 
-The `test/` directory contains our test file which is `main.c` 
+The `test/` directory contains our test file which is `main.c`
 
 To test, run the `autocompile.sh` script as follows:
 
