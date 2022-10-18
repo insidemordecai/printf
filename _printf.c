@@ -16,17 +16,14 @@ int _printf(const char *format, ...)
 		return (0);
 
 	va_start(arguments, format);
-
-	for (i = 0; *(format + i) != '\0'; i++)
+	for (i = 0; *format && format[i] != '\0'; i++)
 	{
 		/* set flag to true (1) if encountered */
 		if (format[i] == '%')
 		{
 			flag = 1;
-			continue;
 		}
-
-		if (flag == 1)
+		else if (flag == 1)
 		{
 			flag = 0;
 
@@ -76,7 +73,6 @@ int _printf(const char *format, ...)
 			total += 1;
 		}
 	}
-
 	va_end(arguments);
 
 	return (total);
